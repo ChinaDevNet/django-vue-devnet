@@ -15,13 +15,12 @@ import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ================================================= #
 # ******************** 动态配置 ******************** #
 # ================================================= #
-
-from conf.env import *
+from backend.conf.env import *
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -31,7 +30,6 @@ SECRET_KEY = "django-insecure--z8%exyzt7e_%i@1+#1mm=%lb5=^fx_57=1@a+_y7bg5-w%)sm
 # 初始化plugins插件路径到环境变量中
 PLUGINS_PATH = os.path.join(BASE_DIR, "plugins")
 sys.path.insert(0, os.path.join(PLUGINS_PATH))
-
 [
     sys.path.insert(0, os.path.join(PLUGINS_PATH, ele))
     for ele in os.listdir(PLUGINS_PATH)
@@ -57,6 +55,7 @@ INSTALLED_APPS = [
     "dvadmin.system",
     "drf_yasg",
     "captcha",
+    "tools",
 ]
 
 MIDDLEWARE = [
@@ -150,7 +149,7 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = "media"  # 项目下的目录
 MEDIA_URL = "/media/"  # 跟STATIC_URL类似，指定用户可以通过这个url找到文件
-
+# DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 # 收集静态文件，必须将 MEDIA_ROOT,STATICFILES_DIRS先注释
 # python manage.py collectstatic
 # STATIC_ROOT=os.path.join(BASE_DIR,'static')
