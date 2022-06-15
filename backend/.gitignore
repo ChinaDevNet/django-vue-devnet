@@ -94,6 +94,6 @@ ENV/
 conf/
 !conf/env.example.py
 db.sqlite3
-media/
+media/config_files
 __pypackages__/
 package-lock.json

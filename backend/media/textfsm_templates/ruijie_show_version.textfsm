@@ -1,0 +1,11 @@
+Value Filldown MEMBER (\d)
+Value Required SerialNum (\S+)
+
+Start
+  ^Module\sinformation: -> Model
+  ^Device\sinformation: -> Model
+
+Model
+  ^\s*Slot\s${MEMBER}
+  ^\s*Device-${MEMBER}
+  ^\s+Serial\s+number\s*:\s*${SerialNum} -> Continue.Record
