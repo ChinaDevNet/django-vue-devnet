@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ================================================= #
 # ******************** 动态配置 ******************** #
 # ================================================= #
-from backend.conf.env import *
+from conf.env import *
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "captcha",
     "tools",
+    "assets",
 ]
 
 MIDDLEWARE = [
